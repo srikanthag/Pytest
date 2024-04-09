@@ -6,9 +6,6 @@ python -m  pytest-m login  Pytest_Basics/test_demo_marker.py
 python -m pytest -m login  Pytest_Basics/test_demo_marker.py
 
 
-m
-
-
 
 
 
