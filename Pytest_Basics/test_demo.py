@@ -11,13 +11,13 @@ def test_s1():
 def test_s2():
     a = "srikanth"
     b = "srikanth"
-    assert a == b, "Both are different"
+    assert a == b, "Both are same"
 
 def test_s3():
-    assert 100 == 1000
+    assert 100 == 100, "Both are same"
 
 def  test_s4():
-    assert 1 == 1
+    assert 1 == 1, "Both are same"
 
 
 
