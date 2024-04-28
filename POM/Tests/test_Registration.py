@@ -24,6 +24,7 @@ class Registration_test(unittest.TestCase):
         registration.Enter_Email("Rsharma@gmail.com")
         registration.Enter_Password("123456789")
         registration.Enter_Confirm_Password("123456789")
+        registration.Click_Reg_button()
 
     @classmethod
     def tearDownClass(cls):
