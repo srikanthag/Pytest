@@ -5,12 +5,11 @@ python -m pytest  Pytest_Selenium/test_selenium_basic_run.py
 2. Marker
 python -m pytest -m login  Pytest_Basics/test_demo_marker.py
 
-
 3. Generate reports
 python -m pytest --html=POM/Results/report.html --self-contained-html POM/Tests/Registration.py
 
-
-
+4. Parallel execution of test runs  (I have 3 test cases)
+python -m pytest -n 3 pytest_basics/test_webpage_login.py
 
 
 
