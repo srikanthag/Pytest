@@ -1,7 +1,5 @@
 import pytest
 
-
-
 def test_s1():
     a = 1
     b = 2
@@ -18,19 +16,4 @@ def test_s3():
 
 def  test_s4():
     assert 1 == 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
