@@ -1,0 +1,17 @@
+In pytest, assert is used to verify if a particular condition is True during the execution of the test. If the condition is True, the test passes; if the condition is False, pytest raises an AssertionError, which causes the test to fail.
+
+def test_addition():
+    result = 1 + 1
+    assert result == 2  # Passes, because 1 + 1 equals 2
+
+def test_subtraction():
+    result = 2 - 1
+    assert result == 1  # Passes, because 2 - 1 equals 1
+
+def test_addition1():
+    result = 1 + 1
+    assert result == 3  # Fails, because 1 + 1 does not equal 3  # AssertionError
+
+assert checks if an expression is True. If it is, the test passes. If it is not, pytest raises an AssertionError and the test fails.
+You can include custom error messages to make failures clearer.
+assert can be used in combination with other pytest features like raises to test exceptions.

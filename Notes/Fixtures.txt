@@ -1,0 +1,47 @@
+In pytest, a fixture is a way to provide setup and teardown code for tests. Fixtures allow you to set up preconditions, such as creating objects or initializing values, before running tests. They can also be used for cleanup after tests. Fixtures are very useful for avoiding repetitive setup code in multiple tests.
+
+Fixtures are created using the @pytest.fixture decorator.
+They can be passed to test functions by simply mentioning the fixture's name as an argument in the test function.
+They can be scoped to control how often the fixture is set up (e.g., per test, per module, etc.).
+Fixtures can return data or objects that are used in tests.
+Cleanup (teardown) actions can be handled using yield or by specifying a finalizer in the fixture.
+
+
+Syntax
+import pytest
+
+@pytest.fixture
+def fixture_name():
+    # set of code
+    yield
+    # Teardown
+
+=====================================================================================
+
+Scope of Fixtures
+
+The scope of fixtures defines the lifetime and accessibility of a fixture within the testing framework. It determines how long the fixture will persist (e.g., for a single test, across multiple tests, or across multiple test sessions). Different testing frameworks like JUnit (Java), pytest (Python), RSpec (Ruby), and Mocha (JavaScript) have varying implementations of fixture scopes.
+
+Fixtures can have different scopes:
+
+1. Function Scope (Test Scope):
+Function scope means that the fixture is created and destroyed before and after each individual test function is run. It ensures that each test has a fresh setup and is isolated from others.
+
+2. Module Scope:
+Module scope means the fixture will be created once per module (or file), and all tests in that module share the same fixture. This is useful for expensive setup operations that don't need to be repeated for every test, such as setting up a database or a web server.
+
+3. Class Scope:
+Class scope means the fixture is created once per test class. All the tests within that class will share the same fixture.
+
+4. Session Scope
+In session scope, the fixture is created once per test session and is shared across all tests in the session. This is ideal for long-lived resources that only need to be set up once, like starting a web server or initializing a complex environment.
+
+=====================================================================================
+Parallel execution in pytest can significantly speed up the testing process by running tests concurrently. This is especially helpful when you have a large number of test cases that don't depend on each other and can be run in parallel.
+
+To run tests in parallel using pytest, you can use the pytest-xdist plugin. This plugin allows you to distribute the tests across multiple CPUs or workers.
+
+Steps to run tests in parallel with pytest-xdist:
+Install pytest-xdist:
+
+If you haven't installed pytest-xdist, you can do so using pip:

@@ -1,0 +1,40 @@
+1. To Execute all files in that folder (Pytest_Basics folder)
+python -m pytest Pytest_Basics
+
+2. To execute particular file
+python -m pytest Pytest_Basics/test_Assert.py
+
+3. To execute particular file function
+python -m pytest Pytest_Basics/test_Assert.py::test_largets_even
+
+4. To execute particular keyword
+python -m pytest Pytest_Basics/test_Assert.py -k "Even"
+
+5. For more info (passed/failed with pass percentage)
+python -m pytest -v Pytest_Basics/test_Assert.py
+
+6. Run only previously failed test cases
+python -m pytest --lf Pytest_Basics/test_Assert.py
+
+=============================================================
+
+
+Marker
+python -m pytest -m smoke Pytest_Basics/test_Markers.py
+python -m pytest -m regression Pytest_Basics/test_Markers.py
+
+Multiple tags:
+    python -m pytest -m "smoke or regression" Pytest_Basics/test_Markers.py
+    python -m pytest -m "smoke and not regression" Pytest_Basics/test_Markers.py
+
+Skip:
+    python -m pytest -v Pytest_Basics/test_Skip.py
+
+=============================================================
+Parallel execution of test runs  (I have 3 test cases)
+python -m pytest -n 3 pytest_basics/test_webpage_login.py
+
+=============================================================
+
+Generate reports
+python -m pytest --html=POM/Results/report.html --self-contained-html POM/Tests/Registration.py

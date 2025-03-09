@@ -1,0 +1,93 @@
+In pytest, markers are a way to add metadata to tests or groups of tests. They can be used to categorize, skip, or even parametrize tests, and help organize your test suite in a more flexible way.
+
+import pytest
+
+# Marker to indicate this test is a slow test
+@pytest.mark.slow
+def test_long_running_operation():
+    assert 2 + 2 == 4
+
+def test_to_be_skipped():
+    assert 2 + 2 == 4
+
+@pytest.mark.slow
+def test_another_slow_test():
+    assert 2 + 2 == 4
+
+The @pytest.mark.slow marker is used to label tests as "slow."
+
+=============================================================================
+
+** Skip
+You can skip tests conditionally with skipif. For example, let's say you only want to run certain tests on a particular platform:
+
+@pytest.mark.skip(reason="This test is skipped for now")
+def test_to_be_skipped():
+    assert 2 + 2 == 4
+
+** Skipif
+
+In pytest, the @pytest.mark.skipif marker is used to skip a test conditionally, based on some runtime condition. The test will be skipped only if the condition provided to skipif evaluates to True. If the condition evaluates to False, the test will run normally.
+
+import pytest
+import sys
+
+@pytest.mark.skipif(sys.version_info < (3, 8), reason="Requires Python 3.8 or higher")
+def test_python_38_or_higher():
+    assert 1 + 1 == 2  # This test requires Python 3.8 or later
+
+=============================================================================
+
+** Parametrize
+In pytest, parameterization is a feature that allows you to run a test function multiple times with different sets of input values. This is useful when you want to test the same logic under various conditions without writing multiple test functions.
+
+Why use parameterization?
+It helps reduce the redundancy in your test code.
+It makes tests more readable and concise.
+You can test a variety of cases (including edge cases) without writing separate tests.
+
+import pytest
+
+# Function to test
+def add(a, b):
+    return a + b
+
+# Parameterized test
+@pytest.mark.parametrize("a, b, expected", [
+    (1, 2, 3),
+    (2, 3, 5),
+    (-1, 1, 0),
+    (0, 0, 0),
+])
+def test_add(a, b, expected):
+    assert add(a, b) == expected
+
+The @pytest.mark.parametrize decorator takes three arguments: the names of the parameters (a, b, expected), followed by a list of tuples with input and expected output.
+The test test_add() will be executed 4 times, once for each tuple in the list.
+
+=============================================================================
+
+** Xfail
+In pytest, the xfail marker is used to mark a test that is expected to fail. It tells pytest that the test may fail, and if it does fail, it will not be reported as a failure (i.e., it will be reported as "expected failure"). This can be useful when testing features that are not yet implemented or tests that are known to fail under certain conditions.
+
+import pytest
+
+# A test that we expect to fail
+@pytest.mark.xfail
+def test_expected_failure():
+    assert 1 == 2  # This will fail, but pytest will consider it as expected
+
+# A regular test that will pass
+def test_pass():
+    assert 1 == 1
+
+test_expected_failure: This test will always fail because 1 == 2 is False. However, because it's marked with @pytest.mark.xfail, pytest will recognize that the failure is expected and will not report it as a failure. Instead, it will be marked as "xfail" in the output.
+test_pass: This is a regular test that will pass.
+
+
+
+
+
+
+
+

@@ -1,0 +1,122 @@
+pytest is a popular testing framework for Python that is used to write simple as well as scalable test cases. It's known for its easy syntax, powerful features, and integration with other testing tools.
+
+Key Features of pytest:
+1. Simple Syntax: Tests are written as functions using assertions to check conditions.
+2. Test Discovery: Automatically finds tests by searching for files matching test_*.py and functions matching test_*.
+3. Fixtures: Provides setup code that can be reused across tests. Fixtures are used for initializing test data, configuring resources, etc.
+4. Assertions: Provides helpful introspection, showing exactly where tests fail and why.
+5. Plugins: Extensible with plugins for code coverage, test reporting, and other needs.
+6. Parameterization: Allows tests to be run with multiple input values easily.
+
+
+
+Basic Example:
+A simple test with pytest:
+
+python
+# test_example.py
+
+def test_addition():
+    assert 1 + 1 == 2
+
+To run this test, simply execute:
+bash
+pytest test_example.py
+
+==================================================================================
+
+** Fixtures:
+Fixtures allow you to create reusable components for your tests. They can be shared among multiple test functions.
+
+python
+import pytest
+
+@pytest.fixture
+def sample_data():
+    return {"key": "value"}
+
+def test_example(sample_data):
+    assert sample_data["key"] == "value"
+
+
+==================================================================================
+
+Test Parameterization:
+You can run the same test function with different parameters using @pytest.mark.parametrize.
+
+python
+import pytest
+
+@pytest.mark.parametrize("input, expected", [(1, 2), (2, 4), (3, 6)])
+def test_multiply(input, expected):
+    assert input * 2 == expected
+
+
+This will run three tests, each with different inputs.
+
+
+
+Important pytest Commands:
+- Run tests: pytest
+- Run specific test file: pytest test_example.py
+- Run a specific test function: pytest -k test_addition
+- Show more output: pytest -v
+- Run tests in a specific directory: pytest tests/
+- Generate a report: pytest --maxfail=1 --disable-warnings
+
+Useful pytest Features:
+1. assert: 
+   - Python’s built-in assert keyword is used for checking if a condition holds.
+   - pytest gives clear error messages when assertions fail.
+   
+2. -v (Verbose): 
+   - Displays more detailed test results, including the names of passed tests and more information on failures.
+
+3. --maxfail=1: 
+   - Stop testing after the first failure.
+
+4. --disable-warnings: 
+   - Suppresses warning messages during test runs.
+
+5. -k: 
+   - Run tests that match a substring of their name.
+
+
+
+Test Coverage:
+You can integrate pytest with tools like coverage.py to check test coverage. To use it:
+bash
+pip install pytest-cov
+pytest --cov=my_module tests/
+
+
+
+
+Running Tests in Parallel:
+You can speed up test execution by running tests in parallel using the pytest-xdist plugin:
+bash
+pip install pytest-xdist
+pytest -n 4
+
+This runs the tests in parallel with 4 workers.
+
+
+
+Common Tips:
+- Test Naming Convention: 
+   - By convention, test functions should start with test_.
+   - Test files should be named test_*.py.
+   
+- Assertions:
+   - Use assert in place of self.assertEqual() from unittest. 
+   - Pytest will provide clear output on assertion failures, such as showing the values of the expression.
+
+- Skipping Tests:
+   - You can skip tests using @pytest.mark.skip or @pytest.mark.skipif for conditional skipping.
+   
+python
+import pytest
+
+@pytest.mark.skip(reason="No longer needed")
+def test_to_skip():
+    assert False

@@ -1,19 +1,13 @@
-import pytest
+def is_even_or_odd(n):
+    if n%2 == 0:
+        return "Even"
+    else:
+        return "Odd"
 
-def test_s1():
-    a = 1
-    b = 2
-    assert a+1 == b, "test fail"
-    assert a != b, "Pass"
+def test_even_number():
+    result = is_even_or_odd(4)
+    print(result)
 
-def test_s2():
-    a = "srikanth"
-    b = "srikanth"
-    assert a == b, "Both are different"
-
-def test_s3():
-    assert 100 == 1000
-
-def  test_s4():
-    assert 1 == 1
-
+def test_odd_number():
+    result = is_even_or_odd(7)
+    print(result)
