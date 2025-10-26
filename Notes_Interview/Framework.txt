@@ -1,0 +1,29 @@
+my frame work consist of following folder
+1. driver folder: it hold .exe file of webdriver
+
+2. library: This folder consist
+a.config: Config files holds project related structure like URL, username,password
+
+b.conftest: Fixtures can be shared or re-used in different test methods Like Launching browser, navigating to URL,
+login, logout and closing the browser and across multiple files through a special python file “conftest.py”.
+
+The fixture present in “conftest.py” automatically get discovered by pytest.
+Pytest fixture is a callable (normally a function or a generator) decorated with inbuilt pytest decorator @fixture
+Fixtures are used for dependency injection or to pass the data to the test functions.
+
+c.All generic functions for clicking on element, entering text, selecting item from the list box would be maintained
+in a separate class called "SeleniumWrapper".
+
+d.We have written a wait decorator for Synchronisation. Each generic function is being decorated with wait decorator.
+So, before performing any action on a web element, the decorator checks if the element is visible and enabled.
+
+3. POM: It consist automation script for all modules.
+
+4. Test: This folder consist test scripts
+
+5. Test data: For each page we create a separate work sheet and maintain all the locators in that worksheet and we maintain
+separate test data sheet where we divide the test data based on modules. We maintain separate worksheet in excel for
+each module. The test data required for all the test cases for each module will be maintained in the corresponding
+worksheet.
+
+6. Reports: HTML reports will be generated in "Reports" folder and all the screenshots will be taken in "Screenshots" folder.
