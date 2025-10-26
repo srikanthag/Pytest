@@ -1,0 +1,141 @@
+1. What is **Pytest**, and why is it used?
+pytest is a popular testing framework for Python that is used to write simple as well as scalable test cases. It's known for its easy syntax, powerful features, and integration with other testing tools.
+
+
+2. What is the **default naming convention** for test files and test functions in Pytest?
+test_example.py
+
+
+3. How do you **run tests** using Pytest from the command line?
+pytest
+
+
+4. How can you **run a specific test** function or test file?
+pytest test_sample.py
+
+
+5. What is the **naming rule** for test functions and classes in Pytest?
+Test functions must start with test_.
+Test classes should start with Test and should not have an __init__ method.
+
+
+6. What does `assert` do in Pytest?
+Pytest uses Python’s built-in assert statement for validation.
+If the condition in the assert statement is True, the test passes.
+If it’s False, the test fails and Pytest provides a detailed failure message showing the values involved.
+
+def test_division():
+    result = 10 / 2
+    assert result == 5
+
+
+7. How do you **skip a test** in Pytest?
+You can skip a test using the @pytest.mark.skip decorator:
+
+
+8. How do you **mark** tests with custom labels like `@pytest.mark.slow`?
+import pytest
+
+@pytest.mark.slow
+def test_heavy_computation():
+    assert sum(range(1000000)) > 0
+
+pytest -m slow
+
+
+1. What are **fixtures** in Pytest?
+2. What is the **scope** of a fixture? List all fixture scopes.
+3. What’s the difference between `@pytest.fixture` and `@pytest.mark.usefixtures`?
+4. How can you **parameterize tests** in Pytest?
+5. How do you **pass parameters** to fixtures?
+6. How can you make a fixture **autouse** so it runs automatically?
+7. How do you **use setup and teardown** logic in Pytest?
+8. What is the purpose of `conftest.py`?
+9. How do you **share fixtures across multiple test files**?
+10. How can you **use temporary files or directories** in tests (e.g. using `tmp_path`)?
+
+---
+
+### 🧾 Assertions and Reporting
+
+1. What is the difference between `assert` and `pytest.fail()`?
+2. How can you **capture log messages** in Pytest?
+3. How do you **generate HTML or XML reports** in Pytest?
+4. How do you **rerun failed tests** automatically?
+5. How can you **filter tests** using `-k`, `-m`, or `-q` options?
+
+---
+
+### 🧩 Mocking and Dependencies
+
+1. How do you **mock external dependencies** in Pytest?
+2. What is the difference between **`monkeypatch`** and **`unittest.mock`**?
+3. How do you **patch environment variables** in tests?
+4. What is `pytest-mock`, and how is it used?
+5. Can you explain how to **mock API calls** (like using `requests.get`)?
+
+---
+
+## 🚀 **Advanced Pytest Questions**
+
+### 🧬 Customization and Plugins
+
+1. How do you **write your own Pytest plugin**?
+2. What is the purpose of `pytest_addoption()`?
+3. How can you **add command-line arguments** to Pytest runs?
+4. What is the **hook system** in Pytest (e.g., `pytest_configure`, `pytest_collection_modifyitems`)?
+5. How can you **change test collection behavior** using hooks?
+6. How do you **register custom markers**, and why is it important?
+7. How can you **conditionally skip** or **xfail** tests based on logic or environment?
+8. How do you **parametrize fixtures dynamically**?
+9. How can you **extend Pytest reports** with custom metadata?
+10. How do you integrate **Pytest with CI/CD pipelines** (e.g., Jenkins, GitHub Actions)?
+
+---
+
+### 🧩 Test Design & Performance
+
+1. How do you handle **dependency injection** with fixtures?
+2. How can you **parallelize tests** using `pytest-xdist`?
+3. How do you ensure **test isolation** in Pytest?
+4. How can you **run only failed tests** from the previous run?
+5. What are **session-scoped** fixtures used for?
+6. How can you use **markers** for selective test execution (e.g. regression, smoke)?
+7. What are **best practices** for writing reusable fixtures?
+8. How can you **measure test coverage** with Pytest (`pytest-cov`)?
+9. How do you integrate **Pytest with Docker** or **database fixtures**?
+10. How do you **debug failed tests** interactively?
+
+---
+
+### 🧪 Real-World Scenarios
+
+1. How would you structure a **large test suite** in Pytest?
+2. How do you **mock third-party services** like AWS, Redis, or databases?
+3. How can you **combine Pytest with Selenium**, Playwright, or REST API testing?
+4. What strategies do you use for **data-driven testing** in Pytest?
+5. How can you **tag tests by environment** (dev, staging, prod)?
+6. What’s the best way to **log test output and results** for debugging?
+7. How do you **handle flaky tests** in Pytest?
+8. How do you ensure **test reproducibility** when randomness or time is involved?
+9. What are **pytest fixtures vs. setup_class/setup_method** differences in real use?
+10. How do you **write tests for async functions** (e.g., using `pytest-asyncio`)?
+
+---
+
+## 🎯 **Bonus: Hands-On / Coding Questions**
+
+1. Write a Pytest function that checks if a list is sorted.
+2. Write a fixture that sets up a temporary database connection.
+3. Demonstrate how to mock a REST API call using `pytest-mock`.
+4. Write a parameterized test that validates multiple input/output pairs.
+5. Write a test that skips if Python version < 3.10.
+6. Write a custom Pytest plugin that adds a new CLI flag.
+7. Write a fixture that automatically logs start and end time of each test.
+8. Write a test that asserts a function raises a specific exception.
+9. Demonstrate the use of `pytest.mark.parametrize` and `pytest.mark.skipif`.
+10. Write an example test that uses both `tmp_path` and `monkeypatch`.
+
+---
+
+Would you like me to provide **sample answers** or **code examples** for these questions (e.g. a mock interview guide or cheat sheet)?

@@ -23,10 +23,3 @@ def test_search():
 def test_teardown():
     driver.close()      # close current browser
     driver.quit()       # close all browser
-
-
-
-
-
-
-

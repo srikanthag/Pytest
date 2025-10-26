@@ -84,10 +84,3 @@ def test_pass():
 test_expected_failure: This test will always fail because 1 == 2 is False. However, because it's marked with @pytest.mark.xfail, pytest will recognize that the failure is expected and will not report it as a failure. Instead, it will be marked as "xfail" in the output.
 test_pass: This is a regular test that will pass.
 
-
-
-
-
-
-
-
