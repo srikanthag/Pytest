@@ -1,4 +1,5 @@
-my frame work consist of following folder
+my framework consist of following folders
+
 1. driver folder: it hold .exe file of webdriver
 
 2. library: This folder consist
